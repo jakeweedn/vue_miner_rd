@@ -8,7 +8,7 @@ export const AppState = reactive({
 
   cheese: 0,
 
-  upgrades: 0
+
 
   clickUpgrades: [
     new Upgrade({
