@@ -9,12 +9,14 @@ export const AppState = reactive({
   cheese: 0,
 
 
+  /** @type {Upgrade[]} */
 
   clickUpgrades: [
     new Upgrade({
       id: '234f',
       name: 'Dynamite',
-      quantity: 2,
+      price: 7,
+      quantity: 0,
       multiplier: 3
 
     }),
@@ -22,7 +24,8 @@ export const AppState = reactive({
     new Upgrade({
       id: '132g',
       name: 'Tabasco Sauce',
-      quanity: 3,
+      price: 9,
+      quantity: 0,
       multiplier: 4
 
     })
@@ -30,11 +33,14 @@ export const AppState = reactive({
 
   ],
 
+  /** @type {Upgrade[]} */
   autoUpgrades: [
+
     new Upgrade({
       id: '8c24',
       name: 'Sunflower Seed',
-      quantity: 8,
+      price: 3,
+      quantity: 0,
       multiplier: 6,
 
     }),
@@ -42,7 +48,8 @@ export const AppState = reactive({
     new Upgrade({
       id: '78bn',
       name: 'Pepperoni',
-      quanity: 7,
+      price: 4,
+      quantity: 0,
       multiplier: 5,
     })
 
