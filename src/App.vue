@@ -8,6 +8,20 @@ import Shop from './components/Shop.vue'
 
 // const cheese = ref(0)
 const cheese = computed(() => AppState.cheese)
+let cheesePerClick = computed(() => {
+
+  let clickUpgradeTotal = 0;
+
+  for (let i = 0; i <= 1; i++) {
+
+    clickUpgradeTotal += AppState.clickUpgrades[i].quantity * AppState.clickUpgrades[i].multiplier
+
+
+
+  }
+
+  return 1 + clickUpgradeTotal
+})
 
 const clickUpgrades = computed(() => AppState.clickUpgrades)
 const autoUpgrades = computed(() => AppState.autoUpgrades)
@@ -44,9 +58,12 @@ function addAutoUpgrades() {
 
   <main class="container-fluid">
 
-    <h1 class="text-center" id="siteTitle">Vue Miner</h1>
+
+
+    <h1 class="text-center bungee-shade-regular" id="siteTitle">Vue Miner </h1>
 
     <p>Cheese: {{ cheese }} </p>
+    <p>Cheese per click: {{ cheesePerClick }} </p>
 
 
 
@@ -133,5 +150,13 @@ article {
 #siteTitle {
 
   font-size: 48px;
+
+}
+
+
+.bungee-shade-regular {
+  font-family: "Bungee Shade", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 </style>

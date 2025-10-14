@@ -14,6 +14,8 @@ const autoUpgrades = computed(() => AppState.autoUpgrades)
 
 
 
+
+
 function buyUpgrade(upgrade) {
 
     console.log("We will buy an upgrade", upgrade)
@@ -57,6 +59,8 @@ function buyUpgrade(upgrade) {
 
         <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
 
+        <p v-else> Not enough cheese to buy {{ upgrade.name }} </p>
+
 
     </section>
 
@@ -65,6 +69,8 @@ function buyUpgrade(upgrade) {
     <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 
         <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
+
+        <p v-else> Not enough cheese to buy {{ upgrade.name }} </p>
 
 
     </section>
