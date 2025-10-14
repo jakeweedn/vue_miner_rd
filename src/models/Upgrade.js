@@ -1,3 +1,4 @@
+import { AppState } from "@/AppState.js"
 
 export class Upgrade {
     constructor(data) {
@@ -9,5 +10,12 @@ export class Upgrade {
         this.multiplier = data.multiplier
 
     }
+
+    get isUnlocked() {
+
+        return AppState.cheese >= this.price
+    }
+
+
 
 }

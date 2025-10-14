@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import { Upgrade } from '@/models/Upgrade.js';
 import { cheeseService } from '@/services/CheeseService.js';
 import { computed, onMounted } from 'vue';
 
@@ -18,6 +19,9 @@ function buyUpgrade(upgrade) {
     console.log("We will buy an upgrade", upgrade)
     cheeseService.buyUpgrade(upgrade)
 }
+
+
+
 </script>
 
 
@@ -28,7 +32,8 @@ function buyUpgrade(upgrade) {
     <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
 
-        <button @click="buyUpgrade(upgrade)" class="w-25 my-3"> Buy {{ upgrade.name }} </button>
+        <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
+            class="btn btn-secondary w-25 my-3"> Buy {{ upgrade.name }} </button>
 
     </section>
 
@@ -40,7 +45,8 @@ function buyUpgrade(upgrade) {
     <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 
 
-        <button @click="buyUpgrade(upgrade)" class="w-25 my-3"> Buy {{ upgrade.name }} </button>
+        <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
+            class="btn btn-secondary w-25 my-3"> Buy {{ upgrade.name }} </button>
 
 
     </section>
@@ -49,7 +55,7 @@ function buyUpgrade(upgrade) {
 
     <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
-        <p> {{ upgrade.name }}: {{ upgrade.price }} </p>
+        <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
 
 
     </section>
@@ -58,32 +64,10 @@ function buyUpgrade(upgrade) {
 
     <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 
-        <p> {{ upgrade.name }}: {{ upgrade.price }} </p>
+        <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
 
 
     </section>
-
-
-
-
-
-    <h2>ClickUpgrade Quantities</h2>
-
-    <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
-
-        <p> {{ upgrade.name }}: {{ upgrade.quantity }}</p>
-
-    </section>
-
-
-    <h2>AutoUpgrade Quantities</h2>
-
-    <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
-
-        <p> {{ upgrade.name }}: {{ upgrade.quantity }}</p>
-
-    </section>
-
 
 
 </template>
