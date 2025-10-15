@@ -29,37 +29,56 @@ function buyUpgrade(upgrade) {
 
 <template>
 
-    <h1>Click Upgrades</h1>
-
-    <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
 
-        <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
-            class="btn btn-secondary w-25 my-3"> Buy {{ upgrade.name }} </button>
+    <div class="col-md-3">
+        <h4>Click Upgrades</h4>
 
-    </section>
-
-    <h1>Automatic Upgrades</h1>
+        <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
 
+            <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
+                class="btn btn-secondary w-25 my-3"> {{ upgrade.price }} 🧀</button>
+
+            {{ upgrade.name }}
+
+        </section>
+
+    </div>
 
 
-    <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 
 
-        <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
-            class="btn btn-secondary w-25 my-3"> Buy {{ upgrade.name }} </button>
+    <div class="col-md-3">
+        <h4>Automatic Upgrades</h4>
 
 
-    </section>
+        <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 
-    <h3> ClickUpgrade Prices </h3>
+
+            <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
+                class="btn btn-secondary w-25 my-3"> {{ upgrade.price }} 🧀 </button>
+
+            {{ upgrade.name }}
+
+
+
+
+        </section>
+
+    </div>
+
+
+
+    <!-- Commented this out, but keep it, because it's a useful reference for v-if,v-else!: -->
+
+    <!-- <h3> ClickUpgrade Prices </h3>
 
     <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
         <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
 
-        <p v-else> Not enough cheese to buy {{ upgrade.name }} </p>
+        <p v-else> {{ upgrade.name }} not available for purchase </p>
 
 
     </section>
@@ -70,10 +89,10 @@ function buyUpgrade(upgrade) {
 
         <p v-if="upgrade.isUnlocked"> {{ upgrade.name }}: {{ upgrade.price }} </p>
 
-        <p v-else> Not enough cheese to buy {{ upgrade.name }} </p>
+        <p v-else> {{ upgrade.name }} not available for purchase </p>
 
 
-    </section>
+    </section> -->
 
 
 </template>
