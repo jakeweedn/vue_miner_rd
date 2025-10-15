@@ -78,47 +78,55 @@ function addAutoUpgrades() {
     <section class="row">
       <div id="cheese-count">
         <h1 class="text-center mdi mdi-cheese">{{ cheese }} </h1>
-        <p class="mdi mdi-mouse-left-click">Cheese per click: {{ cheesePerClick }} </p>
+        <h5 class="mdi mdi-mouse-left-click">Cheese per click: {{ cheesePerClick }} </h5>
 
       </div>
 
-
-
-
-      <section class="row">
-
-        <Shop />
-
-      </section>
-
-
-
-
-
-      <div class="col-md-6">
-
-
-        <article>
-          <h2>ClickUpgrade Quantities</h2>
-
-          <div v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
-
-            <p> {{ upgrade.name }}: {{ upgrade.quantity }}</p>
-
-          </div>
-
-
-          <h2>AutoUpgrade Quantities</h2>
-
-          <div v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
-
-            <p> {{ upgrade.name }}: {{ upgrade.quantity }}</p>
-
-          </div>
-        </article>
-
-      </div>
     </section>
+
+
+
+
+    <section class="row bg-yellow">
+
+      <Shop />
+
+
+
+
+
+
+
+      <div class="col-md-3">
+
+
+
+        <h4>ClickUpgrade Stats </h4>
+
+        <div v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
+
+          <p>{{ upgrade.name }}: {{ upgrade.quantity }} ➡️ {{ upgrade.quantity * upgrade.multiplier }} </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-3">
+
+        <h4>AutoUpgrade Stats</h4>
+
+        <div v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
+
+          <p> {{ upgrade.name }}: {{ upgrade.quantity }} ➡️ {{ upgrade.quantity * upgrade.multiplier }} </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
   </main>
 </template>
 
@@ -132,11 +140,11 @@ main {
   background-image: url("https://images.stockcake.com/public/6/c/5/6c58d620-94bc-46ff-9fa7-3a11b597854b_large/mystical-purple-sky-stockcake.jpg");
 }
 
-article {
-  background-color: blue;
-  color: red;
+// article {
+//   background-color: blue;
+//   color: red;
 
-}
+// }
 
 #siteTitle {
 

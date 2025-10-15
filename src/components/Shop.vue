@@ -38,7 +38,7 @@ function buyUpgrade(upgrade) {
 
 
             <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
-                class="btn btn-secondary w-25 my-3"> {{ upgrade.price }} 🧀</button>
+                class="btn btn-info w-25 my-3"> {{ upgrade.price }} 🧀</button>
 
             {{ upgrade.name }}
 
@@ -57,7 +57,7 @@ function buyUpgrade(upgrade) {
 
 
             <button :disabled="AppState.cheese < upgrade.price" @click="buyUpgrade(upgrade)"
-                class="btn btn-secondary w-25 my-3"> {{ upgrade.price }} 🧀 </button>
+                class="btn btn-danger w-25 my-3"> {{ upgrade.price }} 🧀 </button>
 
             {{ upgrade.name }}
 
