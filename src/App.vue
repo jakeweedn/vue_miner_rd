@@ -23,6 +23,28 @@ let cheesePerClick = computed(() => {
   return 1 + clickUpgradeTotal
 })
 
+let autoTotal = computed(() => {
+
+  let automaticBonusTotal = 0;
+
+
+  for (let i = 0; i <= 1; i++) {
+
+    automaticBonusTotal += AppState.autoUpgrades[i].quantity * AppState.autoUpgrades[i].multiplier
+
+
+
+  }
+
+  return automaticBonusTotal
+
+
+}
+
+
+
+)
+
 const clickUpgrades = computed(() => AppState.clickUpgrades)
 const autoUpgrades = computed(() => AppState.autoUpgrades)
 
@@ -78,7 +100,11 @@ function addAutoUpgrades() {
     <section class="row">
       <div id="cheese-count">
         <h1 class="text-center mdi mdi-cheese">{{ cheese }} </h1>
-        <h5 class="mdi mdi-mouse-left-click">Cheese per click: {{ cheesePerClick }} </h5>
+        <div class="d-flex justify-content-between">
+          <h5 class="mdi mdi-mouse-left-click my-2 d-flex">{{ cheesePerClick }}
+          </h5>
+          <h5> ⏰ {{ autoTotal }}</h5>
+        </div>
 
       </div>
 
@@ -89,7 +115,16 @@ function addAutoUpgrades() {
 
     <section class="row bg-yellow">
 
+
+
       <Shop />
+
+
+
+
+
+
+
 
 
 
@@ -101,7 +136,7 @@ function addAutoUpgrades() {
 
 
 
-        <h4>ClickUpgrade Stats </h4>
+        <h4 class="my-2 fw-bold">ClickUpgrade Stats </h4>
 
         <div v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
@@ -113,7 +148,7 @@ function addAutoUpgrades() {
 
       <div class="col-md-3">
 
-        <h4>AutoUpgrade Stats</h4>
+        <h4 class="my-2 fw-bold">AutoUpgrade Stats</h4>
 
         <div v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
 

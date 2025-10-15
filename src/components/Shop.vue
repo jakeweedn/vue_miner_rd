@@ -31,8 +31,8 @@ function buyUpgrade(upgrade) {
 
 
 
-    <div class="col-md-3">
-        <h4>Click Upgrades</h4>
+    <div class="col-md-3 sick">
+        <h4 class="my-2 fw-bold">Click Upgrades</h4>
 
         <section v-for="upgrade in AppState.clickUpgrades" :key="upgrade.name">
 
@@ -49,8 +49,8 @@ function buyUpgrade(upgrade) {
 
 
 
-    <div class="col-md-3">
-        <h4>Automatic Upgrades</h4>
+    <div class="col-md-3 stick">
+        <h4 class="my-2 fw-bold">Automatic Upgrades</h4>
 
 
         <section v-for="upgrade in AppState.autoUpgrades" :key="upgrade.name">
@@ -67,6 +67,7 @@ function buyUpgrade(upgrade) {
         </section>
 
     </div>
+
 
 
 
@@ -98,4 +99,13 @@ function buyUpgrade(upgrade) {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sick {
+    background-color: pink;
+}
+
+.stick {
+
+    background-color: pink;
+}
+</style>
